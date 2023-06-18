@@ -1,0 +1,35 @@
+		2*0  2*1  2*2  2*3  2*4  2*5  2*6  2*7  2*8  
+		--------------------------------------------
+		1    2    4    8    16   32   64   128  256 
+		--------------------------------------------
+usable ip -2    x    x    2    6    14   30   62   126	254
+		--------------------------------------------
+CIDR		x     x   /30  /29  /28   /27  /26   /25  /24
+		--------------------------------------------
+subnet mask     x    x   252  248  240   224   192   128   0
+
+
+static routing:
+ip route xxx.xxx.xxx.0(n/w id) 255.255.255.0 xxx.xxx.xxx.2(entry point)
+ip route xxx.xxx.xxx.0(n/w id) 255.255.255.0 xxx.xxx.xxx.2(entry point)
+ip route xxx.xxx.xxx.0(n/w id) 255.255.255.0 xxx.xxx.xxx.2(entry point)
+
+Router RIP: (neghbour network)
+router rip
+version 2
+network 192.168.1.0
+network 192.168.4.0
+
+DHCP :
+ip dhcp pool pool-name
+network xxx.xxx.xxx.0(n/w id) 255.255.255.0
+default-router xxx.xxx.xxx.1 (default gateway)
+
+OSPF:
+router ospf 10
+network xxx.xxx.xxx.0 (n/w id) 0.0.0.255 area 0
+network xxx.xxx.xxx.1 (n/w id) 0.0.0.255 area 1
+
+
+
+
